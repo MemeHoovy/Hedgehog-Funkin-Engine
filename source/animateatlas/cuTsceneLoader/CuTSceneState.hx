@@ -44,7 +44,8 @@ class CuTSceneState extends FlxAtlas {
     
     var frame:FlxFrame;
     
-    public function new(file:Paths, animLib:TileAnimationLibrary, anotherSymbol:TileContainerSymbol, anotherMovieC:TileContainerMovieClip) {
-        file = Paths.cutFla();
+    public function new(file:Paths, animLib:TileAnimationLibrary, symbol:TileContainerSymbol, movieC:TileContainerMovieClip, key:String) {
+        file = Paths.cutFla('$key');
+        animLib.frameRate(24);
     }
 }
