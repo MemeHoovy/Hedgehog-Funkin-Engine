@@ -20,6 +20,7 @@ import flixel.graphics.frames.FlxFramesCollection;
 import flixel.graphics.frames.FlxFrame;
 import flixel.graphics.atlas.FlxAtlas;
 import Paths;
+import animateatlas.cuTsceneLoader.FlxAnimate;
 #if desktop
 import sys.FileSystem;
 import sys.io.File;
@@ -30,17 +31,11 @@ import js.html.File;
 import animateatlas.cuTsceneLoader.FlxAnimate;
 
 class CuTSceneState extends FlxAtlas {
-    public static var symbolDef:SpriteSymbol;
+    var frameCol:FlxFramesCollection;
 
-    public static var tileSymbol:TileContainerSymbol;
+    var flaLOADER:FlxAnimate;
 
-    public static var movieCdef:SpriteMovieClip;
-
-    public static var tilemovieC:TileContainerMovieClip;
-
-    public static var animLibrary:SpriteAnimationLibrary;
-
-    public static var tileAnimLibrary:TileAnimationLibrary;
+    var atlas:FlxAtlas;
     
     var frame:FlxFrame;
     
