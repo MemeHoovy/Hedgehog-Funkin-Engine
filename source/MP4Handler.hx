@@ -19,13 +19,14 @@ class MP4Handler
 
 	public var sprite:FlxSprite;
 
+
 	public function new()
 	{
 		//FlxG.autoPause = false;
 	}
 
 	public function playMP4(path:String, ?repeat:Bool = false, ?outputTo:FlxSprite = null, ?isWindow:Bool = false, ?isFullscreen:Bool = false,
-			?midSong:Bool = false):Void
+			?midSong:Bool = false, ?callback:FlxState):Void
 	{
 		if (!midSong)
 		{
@@ -67,6 +68,8 @@ class MP4Handler
 		FlxG.addChildBelowMouse(bitmap);
 		bitmap.play(checkFile(path));
 
+		callback = stateCallback;
+
 		if (outputTo != null)
 		{
 			// lol this is bad kek
@@ -107,7 +110,7 @@ class MP4Handler
 
 		// FlxG.camera.fade(FlxColor.BLACK, 0, false);
 
-		trace("Big, Big Chungus, Big Chungus!");
+		trace("AAAUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
 
 		new FlxTimer().start(0.3, function(tmr:FlxTimer)
 		{
@@ -155,7 +158,7 @@ class MP4Handler
 
 	function update(e:Event)
 	{
-		if (FlxControls.justPressed.ENTER || FlxControls.justPressed.SPACE)
+		if (FlxG.keys.justPressed.ENTER || FlxG.keys.justPressed.SPACE)
 		{
 			if (bitmap.isPlaying)
 			{
