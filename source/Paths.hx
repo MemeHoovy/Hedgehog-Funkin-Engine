@@ -28,7 +28,7 @@ class Paths
 {
 	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
 	inline public static var VIDEO_EXT = "mp4";
-	inline public static var FLA_EXT = "fla";
+	inline public static var SWF_EXT = "swf";
 
 	#if MODS_ALLOWED
 	public static var ignoreModFolders:Array<String> = [
@@ -190,9 +190,9 @@ class Paths
 		return getPath('$key.lua', TEXT, library);
 	}
 
-	inline static public function cutFla(key:String, ?library:String) {
-		return 'assets/cutFla/cutscenes/$key.$FLA_EXT';
-	}
+	inline static public function cutSF(key:String, ?library:String) {
+		return 'assets/cutFla/cutscenes/$key.$SWF_EXT';
+	} // unused 
 
 	static public function video(key:String)
 	{

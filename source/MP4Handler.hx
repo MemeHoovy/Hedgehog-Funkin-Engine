@@ -7,10 +7,13 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import openfl.events.Event;
 import vlc.VlcBitmap;
+import PlayState;
+
+
 
 // THIS IS FOR TESTING
 // DONT STEAL MY CODE >:(
-class MP4Handler
+class MP4Handler extends MusicBeatState
 {
 	public var finishCallback:Void->Void;
 	public var stateCallback:FlxState;
@@ -26,7 +29,7 @@ class MP4Handler
 	}
 
 	public function playMP4(path:String, ?repeat:Bool = false, ?outputTo:FlxSprite = null, ?isWindow:Bool = false, ?isFullscreen:Bool = false,
-			?midSong:Bool = false, ?callback:FlxState):Void
+	?midSong:Bool = false, ?callback:FlxState, ?midTrueSong:Void, otherCback:Void->Void):Void
 	{
 		if (!midSong)
 		{
@@ -37,7 +40,10 @@ class MP4Handler
 		}
 
 		bitmap = new VlcBitmap();
+		midTrueSong = if (PlayState.SONG.song.toLowerCase()) 
 
+
+		
 		if (FlxG.stage.stageHeight / 9 < FlxG.stage.stageWidth / 16)
 		{
 			bitmap.set_width(FlxG.stage.stageHeight * (16 / 9));
@@ -61,6 +67,8 @@ class MP4Handler
 			bitmap.repeat = -1; 
 		else
 			bitmap.repeat = 0;
+
+		otherCback = finishCallback;
 
 		bitmap.inWindow = isWindow;
 		bitmap.fullscreen = isFullscreen;
